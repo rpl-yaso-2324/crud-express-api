@@ -1,10 +1,10 @@
 //import express validator
-const { body, validationResult } = require("express-validator");
+const { validationResult } = require("express-validator");
 
 //import database
 const connection = require("../config/database");
 
-//function index post
+/** function index post */
 const index = (req, res) => {
 	//query
 	connection.query("SELECT * FROM post ORDER BY id desc", function (err, rows) {
@@ -23,9 +23,8 @@ const index = (req, res) => {
 	});
 };
 
-// function store post
-// //validation
-body("title").notEmpty(), body("content").notEmpty();
+/** function store post */
+
 const store = (req, res) => {
 	const errors = validationResult(req);
 
